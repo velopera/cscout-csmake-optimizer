@@ -1,6 +1,6 @@
-# cscout-optimizer
+# cscout-csmake-optimizer
 
-`cscout-optimizer` is a Node.js TypeScript tool that optimizes `make.cs` files by removing redundant processing blocks.
+`cscout-csmake-optimizer` is a Node.js TypeScript tool that optimizes `make.cs` files by removing redundant processing blocks.
 
 ## Installation
 
