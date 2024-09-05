@@ -7,10 +7,10 @@ interface Block {
   content: string[];
 }
 
-const inputFilePath = path.resolve(__dirname, "../../make.cs");
-const outputFilePath = path.resolve(__dirname, "../../optimized_make.cs");
-
-async function processFile(): Promise<void> {
+async function processFile(
+  inputFilePath: string,
+  outputFilePath: string
+): Promise<void> {
   const fileStream = fs.createReadStream(inputFilePath);
   const readLine = readline.createInterface({
     input: fileStream,
@@ -71,9 +71,21 @@ async function processFile(): Promise<void> {
     }
   }
 
-  outputStream.end(); // Close the output file
+  // Close the output file
+  outputStream.end();
   console.log(`Optimized file written to ${outputFilePath}`);
 }
 
+// Get arguments passed from the command line
+const args = process.argv.slice(2);
+
+if (args.length < 2) {
+  console.error("Please provide input and output file paths.");
+  process.exit(1);
+}
+
+const inputFilePath = path.resolve(args[0]);
+const outputFilePath = path.resolve(args[1]);
+
 // Start processing the file
-processFile().catch((err) => console.error(err));
+processFile(inputFilePath, outputFilePath).catch((err) => console.error(err));

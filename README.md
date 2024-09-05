@@ -12,11 +12,14 @@
 
 ## Usage
 
-1. Place the make.cs file in the directory as specified in the code (or update the file path in the code).
-
-2. Run the optimizer:
+1. Run the optimizer:
 
    ```bash
    npm run build
-   npm start
+   ```
+
+2. When running the project you can use it like this:
+
+   ```bash
+   npm start -- path/to/make.cs path/to/optimized_make.cs
    ```
